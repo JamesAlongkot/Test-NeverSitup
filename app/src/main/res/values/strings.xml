@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Test Neversitup</string>
+    <string name="title_home">Bitcoin Today</string>
+    <string name="title_dashboard">History</string>
+    <string name="title_notifications">Spacial</string>
+    <string name="price_currency_today">Price Bitcoin Today!!</string>
+    <string name="btc">BTC/</string>
+    <string name="exchange_to_btc">Exchange to BTC</string>
+    <string name="fibonacci">Fibonacci</string>
+    <string name="prime">Prime</string>
+    <string name="filter_array">Filter Array</string>
+</resources>

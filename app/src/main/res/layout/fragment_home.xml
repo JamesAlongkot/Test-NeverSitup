@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.alongkot.testneversitup.ui.home.HomeViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment">
+
+        <TextView
+            android:id="@+id/last_updated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.lastUpdated}"
+            bind:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeMaxTextSize="30sp"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/price_currency_today"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            bind:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            bind:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="o" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            bind:layout_constraintBottom_toBottomOf="parent"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/gbp"
+                layout="@layout/item_currency"
+                bind:title="@{viewmodel.gbp.code}"
+                bind:value="@{viewmodel.gbp.rate}" />
+
+            <include
+                android:id="@+id/usd"
+                layout="@layout/item_currency"
+                bind:title="@{viewmodel.usd.code}"
+                bind:value="@{viewmodel.usd.rate}" />
+
+            <include
+                android:id="@+id/eur"
+                layout="@layout/item_currency"
+                bind:title="@{viewmodel.eur.code}"
+                bind:value="@{viewmodel.eur.rate}" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            bind:layout_constraintBottom_toBottomOf="parent"
+            bind:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <include
+                android:id="@+id/exchange"
+                bind:value="@{viewmodel.btcAmount}"
+                layout="@layout/exchange_btc" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
